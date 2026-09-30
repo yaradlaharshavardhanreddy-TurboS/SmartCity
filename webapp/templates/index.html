@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Machine Learning Model Dashboard</h2>
+
+    <form method="POST">
+        <label>Select Model</label>
+        <select name="model" required>
+            <option value="">-- Select Model --</option>
+            <option value="1">Binary Classification</option>
+            <option value="2">Multi-Class Classification</option>
+            <option value="3">Optimizer Comparison</option>
+            <option value="4">Random Mini-Batch</option>
+            <option value="5">CNN</option>
+            <option value="6">VGG16</option>
+            <option value="7">AlexNet</option>
+            <option value="8">ResNet</option>
+            <option value="9">GoogLeNet</option>
+            <option value="10">AutoEncoder</option>
+            <option value="11">AutoEncoder + ResNet</option>
+            <option value="all">All Models Comparison</option>
+        </select>
+
+        <button type="submit">Run Model</button>
+    </form>
+
+    <!-- ✅ ALL MODELS COMPARISON (ANIMATED GRAPH + TABLE) -->
+    {% if show_all_chart %}
+        <h3 class="section-title">All Models Accuracy Comparison</h3>
+
+        <div class="chart-wrapper">
+            <img src="{{ url_for('static', filename=chart_file) }}"
+                 class="chart-large animated">
+        </div>
+
+        <!-- AUTO-GENERATED MODEL COMPARISON TABLE -->
+        <h2 class="section-title">Model Comparison Table</h2>
+        <table border="1" style="border-collapse: collapse; width: 100%; text-align: center; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>Model Name</th>
+                    <th>Accuracy (%)</th>
+                    <th>Rank</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for model in comparison_models %}
+                <tr>
+                    <td>{{ model.name }}</td>
+                    <td>{{ model.accuracy }}</td>
+                    <td>{{ model.rank }}</td>
+                    <td>{{ model.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+</div>
+
+<!-- ✅ SINGLE MODEL MODAL -->
+{% if model_name and not show_all_chart %}
+<div class="modal" id="modelModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+
+        <h3>{{ model_name }}</h3>
+        <p class="accuracy-text"><b>Accuracy:</b> {{ accuracy }}%</p>
+
+        <img src="{{ url_for('static', filename=chart_file) }}"
+             class="chart-small animated">
+
+        <h4>Limitations</h4>
+        <ul class="limitations-list">
+            {% for item in limitations %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+<script>
+function closeModal() {
+    document.getElementById("modelModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

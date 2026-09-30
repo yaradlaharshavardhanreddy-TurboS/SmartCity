@@ -1,0 +1,276 @@
+/* 🌈 GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+/* 🌌 BODY BACKGROUND */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg,
+        #ff99cc,
+        #3399ff,
+        #33ffcc,
+        #ffdd66);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🌊 GRADIENT ANIMATION */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🧊 MAIN CONTAINER */
+.container {
+    width: 90%;
+    max-width: 850px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(255, 102, 204, 0.4);
+    animation: popIn 0.9s ease;
+}
+
+/* ✨ CONTAINER ANIMATION */
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 🧠 TITLE */
+h2 {
+    text-align: center;
+    color: #222;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px #ff99cc;
+}
+
+/* 📋 FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    color: #222;
+    font-size: 1.1rem;
+}
+
+/* 🎯 SELECT BOX */
+select {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #66f2ff, #99ccff);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+select:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px #66f2ff;
+}
+
+/* 🚀 BUTTON */
+button {
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff9966, #ff66cc);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 25px #ff66cc;
+}
+
+/* 📊 SECTION TITLE */
+.section-title {
+    margin-top: 30px;
+    text-align: center;
+    color: #222;
+    font-size: 1.6rem;
+    text-shadow: 0 0 8px #66ccff;
+}
+
+/* 📈 CHART WRAPPER */
+.chart-wrapper {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    animation: fadeUp 1s ease;
+}
+
+/* 📉 CHARTS */
+.chart-large {
+    max-width: 100%;
+    width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 0 35px rgba(51, 204, 255, 0.5);
+}
+
+.chart-small {
+    width: 280px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(255, 102, 204, 0.5);
+}
+
+/* 🎞️ IMAGE ANIMATION */
+.animated {
+    animation: zoomGlow 1.6s ease;
+}
+
+@keyframes zoomGlow {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 🪟 MODAL BACKGROUND */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeUp 0.6s ease;
+}
+
+/* 🧊 MODAL CONTENT */
+.modal-content {
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #ff99ff, #99ccff);
+    color: #222;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(102, 204, 255, 0.7);
+    animation: popIn 0.7s ease;
+}
+
+/* ❌ CLOSE BUTTON */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #222;
+}
+
+.close:hover {
+    color: #ff66cc;
+}
+
+/* 📌 ACCURACY TEXT */
+.accuracy-text {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-shadow: 0 0 8px #66ccff;
+}
+
+/* ⚠️ LIMITATIONS */
+h4 {
+    margin-top: 20px;
+    text-shadow: 0 0 8px #ff99cc;
+}
+
+.limitations-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.limitations-list li {
+    padding: 10px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    animation: slideIn 0.6s ease;
+}
+
+/* 🌀 LIMITATIONS ANIMATION */
+@keyframes slideIn {
+    from {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 🔥 FADE UP */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .chart-small {
+        width: 230px;
+    }
+}
+
+/* 📋 TABLE STYLING */
+table th, table td {
+    padding: 10px;
+    color: #222;
+    font-weight: bold;
+}
+
+table th {
+    background-color: rgba(102, 204, 255, 0.5);
+    text-shadow: 0 0 6px #66ccff;
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+}
